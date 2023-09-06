@@ -1,0 +1,420 @@
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Ana Sayfa Ayarları</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Site Adı</a></li>
+                                <li class="breadcrumb-item active">Site Ayarları</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Resim Ayarları</h4>
+                            <form method="POST" action="/admin/imageChange/64e8d2cce47f9664533fc798?_method=PUT"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Thumbnail İlk Resim :</label>
+                                            <input class="form-control" name="webMainPageFirstImage" type="file"
+                                                id="formFile">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Ana Yazı</label>
+                                            <input class="form-control" type="text" name="webMainPageFirstImageMainText"
+                                                value="{{webpage.webMainPageFirstImageMainText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Linki</label>
+                                            <input class="form-control" type="text" name="webMainPageFirstImageLink"
+                                                value="{{webpage.webMainPageFirstImageLink}}" id="example-text-input">
+                                        </div>
+                                        <hr>
+
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Thumbnail İkinci Resim</label>
+                                            <input class="form-control" name="webMainPageSecondImage" type="file"
+                                                id="formFile">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Ana Yazı</label>
+                                            <input class="form-control" type="text"
+                                                name="webMainPageSecondImageMainText"
+                                                value="{{webpage.webMainPageSecondImageMainText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Linki</label>
+                                            <input class="form-control" type="text" name="webMainPageSecondImageLink"
+                                                value="{{webpage.webMainPageSecondImageLink}}" id="example-text-input">
+                                        </div>
+                                        <hr>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Thumbnail Üçüncü Resim</label>
+                                            <input class="form-control" name="webMainPageThirdImage" type="file"
+                                                id="formFile">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Ana Yazı</label>
+                                            <input class="form-control" type="text" name="webMainPageThirdImageMainText"
+                                                value="{{webpage.webMainPageThirdImageMainText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Linki</label>
+                                            <input class="form-control" type="text" name="webMainPageThirdImageLink"
+                                                value="{{webpage.webMainPageThirdImageLink}}" id="example-text-input">
+                                        </div>
+                                        {{!-- <div class="mb-3">
+                                            <label for="manufacturername">Manufacturer Name</label>
+                                            <input id="manufacturername" name="manufacturername" type="text"
+                                                class="form-control" placeholder="Manufacturer Name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="manufacturerbrand">Manufacturer Brand</label>
+                                            <input id="manufacturerbrand" name="manufacturerbrand" type="text"
+                                                class="form-control" placeholder="Manufacturer Brand">
+                                        </div> --}}
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Üst Yazı</label>
+                                            <input class="form-control" name="webMainPageFirstImageTopText" type="text"
+                                                value="{{webpage.webMainPageFirstImageTopText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Alt Yazı</label>
+                                            <input class="form-control" type="text"
+                                                name="webMainPageFirstImageBottomText"
+                                                value="{{webpage.webMainPageFirstImageBottomText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-color-input" class="form-label">Thumbnail
+                                                Arka Plan Rengi</label>
+                                            <input class="form-control form-control-color mw-100"
+                                                name="webMainPageFirstImageBgColor" type="color"
+                                                value="{{webpage.webMainPageFirstImageBgColor}}"
+                                                id="example-color-input">
+                                        </div>
+                                        <hr>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Üst Yazı</label>
+                                            <input class="form-control" name="webMainPageSecondImageTopText" type="text"
+                                                value="{{webpage.webMainPageSecondImageTopText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Alt Yazı</label>
+                                            <input class="form-control" type="text"
+                                                name="webMainPageSecondImageBottomText"
+                                                value="{{webpage.webMainPageSecondImageBottomText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-color-input" class="form-label">Thumbnail Rengi</label>
+                                            <input class="form-control form-control-color mw-100"
+                                                name="webMainPageSecondImageBgColor" type="color"
+                                                value="{{webpage.webMainPageSecondImageBgColor}}"
+                                                id="example-color-input">
+                                        </div>
+                                        <hr>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Üst Yazı</label>
+                                            <input class="form-control" name="webMainPageThirdImageTopText" type="text"
+                                                value="{{webpage.webMainPageThirdImageTopText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Thumbnail Alt Yazı</label>
+                                            <input class="form-control" type="text"
+                                                name="webMainPageThirdImageBottomText"
+                                                value="{{webpage.webMainPageThirdImageBottomText}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="example-color-input" class="form-label">Thumbnail
+                                                Arka Plan Rengi</label>
+                                            <input class="form-control form-control-color mw-100"
+                                                name="webMainPageThirdImageBgColor" type="color"
+                                                value="{{webpage.webMainPageThirdImageBgColor}}"
+                                                id="example-color-input">
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
+                                        Changes</button>
+                                    <button type="button"
+                                        class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Layout Ayarları</h4>
+
+                            <form method="POST" action="/admin/imageChange/64e8d2cce47f9664533fc798?_method=PUT"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">İlk Kısım</label>
+                                            <div>
+                                                <select name="webMainPageFirstSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageFirstSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Üçüncü Kısım</label>
+                                            <div>
+                                                <select name="webMainPageThirdSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageThirdSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Beşinci Kısım</label>
+                                            <div>
+                                                <select name="webMainPageFifthSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageFifthSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Yedinci Kısım</label>
+                                            <div>
+                                                <select name="webMainPageSeventhSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageSeventhSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Dokuzuncu Kısım</label>
+                                            <div>
+                                                <select name="webMainPageNinthSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageNinthSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">On birinci Kısım</label>
+                                            <div>
+                                                <select name="webMainPageEleventhSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageEleventhSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">İkinci Kısım</label>
+                                            <div>
+                                                <select name="webMainPageSecondSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageSecondSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Dördüncü Kısım</label>
+                                            <div>
+                                                <select name="webMainPageFourthSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageFourthSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                    <option value="">Yok</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Altıncı Kısım</label>
+                                            <div>
+                                                <select name="webMainPageSixthSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageSixthSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Sekizinci Kısım</label>
+                                            <div>
+                                                <select name="webMainPageEightSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageEightSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageEightSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Onuncu Kısım</label>
+                                            <div>
+                                                <select name="webMainPageTenthSection" class="form-select">
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "banner" )}} selected  {{/if}} value="banner">Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "blog" )}} selected  {{/if}} value="blog">Blog</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "feature" )}} selected  {{/if}} value="feature">Özellikler</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "product" )}} selected  {{/if}} value="product">Ürünler</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productArrival" )}} selected  {{/if}} value="productArrival">Ürünler 2</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productBanner" )}} selected  {{/if}} value="productBanner">Ürünler Banner</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productCategory" )}} selected  {{/if}} value="productCategory">Ürünler Kategori</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productGadget" )}} selected  {{/if}} value="productGadget">Ürünler Eklenti</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productOffer" )}} selected  {{/if}} value="productOffer">Ürünler Teklif</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "productsm" )}} selected  {{/if}} value="productsm">Ürünler SM</option>
+                                                    <option {{#if (eq webpage.webMainPageTenthSection "subscribe" )}} selected  {{/if}} value="subscribe">Bülten Abone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
+                                        Changes</button>
+                                    <button type="submit"
+                                        class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+
+
+</div>

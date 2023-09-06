@@ -1,0 +1,266 @@
+<main>
+
+   <!-- breadcrumb area start -->
+   <section class="breadcrumb__area include-bg pt-95 pb-50" data-bg-color="#EFF1F5">
+      <div class="container">
+         <div class="row">
+            <div class="col-xxl-12">
+               <div class="breadcrumb__content p-relative z-index-1">
+                  <h3 class="breadcrumb__title">Ödeme</h3>
+                  <div class="breadcrumb__list">
+                     <span><a href="/">Ana Sayfa</a></span>
+                     <span>Ödeme</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- breadcrumb area end -->
+
+   <!-- checkout area start -->
+   <section class="tp-checkout-area pb-120" data-bg-color="#EFF1F5">
+      <div class="container">
+         <form action="/odeme/onay" method="POST">
+
+            <div class="row">
+               <div class="col-xl-7 col-lg-7">
+                  <div class="tp-checkout-verify">
+                     {{!-- <div class="tp-checkout-verify-item">
+                        <p class="tp-checkout-verify-reveal">Returning customer? <button type="button"
+                              class="tp-checkout-login-form-reveal-btn">Click here to login</button></p>
+
+                        <div id="tpReturnCustomerLoginForm" class="tp-return-customer">
+                           <form action="#">
+
+                              <div class="tp-return-customer-input">
+                                 <label>Email</label>
+                                 <input type="text" placeholder="Your Email">
+                              </div>
+                              <div class="tp-return-customer-input">
+                                 <label>Password</label>
+                                 <input type="password" placeholder="Password">
+                              </div>
+
+                              <div
+                                 class="tp-return-customer-suggetions d-sm-flex align-items-center justify-content-between mb-20">
+                                 <div class="tp-return-customer-remeber">
+                                    <input id="remeber" type="checkbox">
+                                    <label for="remeber">Remember me</label>
+                                 </div>
+                                 <div class="tp-return-customer-forgot">
+                                    <a href="forgot.html">Forgot Password?</a>
+                                 </div>
+                              </div>
+                              <button type="submit" class="tp-return-customer-btn tp-checkout-btn">Login</button>
+                           </form>
+                        </div>
+                     </div> --}}
+                     {{!-- <div class="tp-checkout-verify-item">
+                        <p class="tp-checkout-verify-reveal">Kupon kodun mu var? <button type="button"
+                              class="tp-checkout-coupon-form-reveal-btn">Click here to enter your code</button></p>
+
+                        <div id="tpCheckoutCouponForm" class="tp-return-customer">
+                           <form action="#">
+                              <div class="tp-return-customer-input">
+                                 <label>Kupon Kodu :</label>
+                                 <input type="text" placeholder="Coupon">
+                              </div>
+                              <button type="button" class="tp-return-customer-btn tp-checkout-btn">Uygula</button>
+                           </form>
+                        </div>
+                     </div> --}}
+                  </div>
+               </div>
+               <div class="col-lg-7">
+                  <div class="tp-checkout-bill-area">
+                     <h3 class="tp-checkout-bill-title">Fatura Detayları</h3>
+
+                     <div class="tp-checkout-bill-form">
+                        <div class="tp-checkout-bill-inner">
+                           <div class="row">
+                              <div class="col-md-6">
+                                 <div class="tp-checkout-input">
+                                    <label>İsim <span>*</span></label>
+                                    <input type="text" name="orderName" value="{{user.userName}}" placeholder="İsim">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="tp-checkout-input">
+                                    <label>Soy İsim <span>*</span></label>
+                                    <input type="text" name="orderSurName" placeholder="Soy İsim">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Şirket Adı (tercih)</label>
+                                    <input type="text" name="orderCompany" placeholder="Örnek LTD.">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Ülke</label>
+                                    <input type="text" name="orderCountry" placeholder="Türkiye (TR)">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Sokak Adresi</label>
+                                    <input type="text" name="orderStreet" placeholder="Ev numarası ve sokak adı">
+                                 </div>
+
+                                 <div class="tp-checkout-input">
+                                    <input type="text" name="orderApartment" placeholder="Apartman, daire no vb.">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Şehir / İlçe</label>
+                                    <input type="text" name="orderCity" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="tp-checkout-input">
+                                    <label>Mahalle</label>
+                                    <input type="text" name="orderHood" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="tp-checkout-input">
+                                    <label>Posta Kodu</label>
+                                    <input type="number" name="orderPostCode" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Telefon <span>*</span></label>
+                                    <input type="number" name="orderPhone" value="{{user.userPhone}}" placeholder="">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Mail Adresi <span>*</span></label>
+                                    <input type="email" name="orderMail" value="{{user.userMail}}" placeholder="">
+                                 </div>
+                              </div>
+                              {{!-- <div class="col-md-12">
+                                 <div class="tp-checkout-option-wrapper">
+                                    <div class="tp-checkout-option">
+                                       <input id="create_free_account" type="checkbox">
+                                       <label for="create_free_account">Create an account?</label>
+                                    </div>
+                                    <div class="tp-checkout-option">
+                                       <input id="ship_to_diff_address" type="checkbox">
+                                       <label for="ship_to_diff_address">Ship to a different address?</label>
+                                    </div>
+                                 </div>
+                              </div> --}}
+                              <div class="col-md-12">
+                                 <div class="tp-checkout-input">
+                                    <label>Sipariş Notu (tercih)</label>
+                                    <textarea name="orderNote" placeholder="Siparişiniz hakkındaki notunuz."></textarea>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <!-- checkout place order -->
+                  <div class="tp-checkout-place white-bg">
+                     <h3 class="tp-checkout-place-title">Siparişiniz</h3>
+
+                     <div class="tp-order-info-list">
+                        <ul>
+
+                           <!-- header -->
+                           <li class="tp-order-info-list-header">
+                              <h4>Ürün</h4>
+                              <h4>Fiyat</h4>
+                           </li>
+
+                           <!-- item list -->
+                           {{#each shoppingcart.productName}}
+                           <li class="tp-order-info-list-desc">
+                              <p>{{productName}} <span> x 1</span></p>
+                              <span>₺{{newPrice}}</span>
+                           </li>
+                           {{/each}}
+
+                           <!-- subtotal -->
+                           <li class="tp-order-info-list-subtotal">
+                              <span>Toplam</span>
+                              <span>₺{{cartTotals.totalPrice}}</span>
+                           </li>
+
+                           <!-- shipping -->
+                           <li class="tp-order-info-list-shipping">
+                              <span>Shipping</span>
+                              <div class="tp-order-info-list-shipping-item d-flex flex-column align-items-end">
+                                 <span>
+                                    <input id="flat_rate" type="radio" checked name="shipping">
+                                    <label for="flat_rate">Kargo: <span>₺20.00</span></label>
+                                 </span>
+                              </div>
+                           </li>
+
+                           <!-- total -->
+                           <li class="tp-order-info-list-total">
+                              <span>Toplam</span>
+                              <span>₺{{plus cartTotals.totalPrice 20}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="tp-checkout-payment">
+                        <div class="tp-checkout-payment-item">
+                           <input type="radio" id="back_transfer" value="Havale" name="orderPayment">
+                           <label for="back_transfer" data-bs-toggle="direct-bank-transfer">Havale</label>
+                           <div class="tp-checkout-payment-desc direct-bank-transfer">
+                              <p>Ödemenizi doğrudan banka hesabımıza yapın. Lütfen ödeme referansı olarak Sipariş
+                                 Kimliğinizi kullanın. Para hesabımıza geçene kadar siparişiniz gönderilmeyecektir.</p>
+                           </div>
+                        </div>
+                        <div class="tp-checkout-payment-item">
+                           <input type="radio" id="cheque_payment" value="Sanal Pos" name="orderPayment">
+                           <label for="cheque_payment">Sanal POS</label>
+                           {{!-- <div class="tp-checkout-payment-desc cheque-payment">
+                              <p>Make your payment directly into our bank account. Please use your Order ID as the
+                                 payment reference. Your order will not be shipped until the funds have cleared in our
+                                 account.</p>
+                           </div> --}}
+                        </div>
+                        <div class="tp-checkout-payment-item">
+                           <input type="radio" id="cod" value="Kapıda Ödeme" name="orderPayment">
+                           <label for="cod">Kapıda Ödeme</label>
+                           {{!-- <div class="tp-checkout-payment-desc cash-on-delivery">
+                              <p>Make your payment directly into our bank account. Please use your Order ID as the
+                                 payment reference. Your order will not be shipped until the funds have cleared in our
+                                 account.</p>
+                           </div> --}}
+                        </div>
+                        {{!-- <div class="tp-checkout-payment-item paypal-payment">
+                           <input type="radio" id="paypal" name="payment">
+                           <label for="paypal">PayPal <img src="/img/icon/payment-option.png" alt=""> <a href="#">What
+                                 is PayPal?</a></label>
+                        </div> --}}
+                     </div>
+                     <div class="tp-checkout-agree">
+                        <div class="tp-checkout-option">
+                           <input id="read_all" type="checkbox">
+                           <label for="read_all">Koşulları okudum kabul ediyorum.</label>
+                        </div>
+                     </div>
+                     <div class="tp-checkout-btn-wrapper">
+                        <button type="submit" class="tp-checkout-btn w-100">Sipariş Ver</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </section>
+   <!-- checkout area end -->
+
+
+</main>

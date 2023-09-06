@@ -1,0 +1,269 @@
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Kategori Ekle</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Sanal Mağaza</a></li>
+                                <li class="breadcrumb-item active">Kategori Ekle</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Kategori Bİlgileri</h4>
+                            <form method="POST" action="/admin/newCategory" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="productName">Kategori Adı</label>
+                                            <input id="productName" name="categoryName" type="text" class="form-control"
+                                                placeholder="Kategori Adı" value="{{category.categoryName}}">
+                                        </div>
+                                        {{!-- <div class="mb-3">
+                                            <label for="manufacturername">Manufacturer Name</label>
+                                            <input id="manufacturername" name="manufacturername" type="text"
+                                                class="form-control" placeholder="Manufacturer Name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="manufacturerbrand">Manufacturer Brand</label>
+                                            <input id="manufacturerbrand" name="manufacturerbrand" type="text"
+                                                class="form-control" placeholder="Manufacturer Brand">
+                                        </div> --}}
+
+                                    </div>
+
+                                    <div class="col-sm-6">
+
+                                        {{!-- <div class="mb-3">
+                                            <label class="control-label">Features</label>
+
+                                            <select class="select2 form-control select2-multiple" multiple="multiple"
+                                                data-placeholder="Choose ...">
+                                                <option value="WI">Wireless</option>
+                                                <option value="BE">Battery life</option>
+                                                <option value="BA">Bass</option>
+                                            </select>
+
+                                        </div> --}}
+                                        <div class="mb-3 d-flex row">
+                                            <div class="col-md-4">
+                                                <label for="code">Kategori Kodu</label>
+                                                <input id="code" name="code" type="number" class="form-control"
+                                                    placeholder="Stok Kodu" value="{{category.code}}">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label">Kategori Icon</label>
+                                                <div>
+                                                    <select name="categoryIcon" class="form-select">
+                                                        <option {{#if (eq category.categoryIcon "home" )}} selected
+                                                            {{/if}} value="home">Ev</option>
+                                                        <option {{#if (eq category.categoryIcon "discount" )}} selected
+                                                            {{/if}} value="discount">İndirim</option>
+                                                        <option {{#if (eq category.categoryIcon "gift" )}} selected
+                                                            {{/if}} value="gift">Hediye</option>
+                                                        <option {{#if (eq category.categoryIcon "computer" )}} selected
+                                                            {{/if}} value="computer">Bilgisayar</option>
+                                                        <option {{#if (eq category.categoryIcon "phone" )}} selected
+                                                            {{/if}} value="phone">Telefon</option>
+                                                        <option {{#if (eq category.categoryIcon "play" )}} selected
+                                                            {{/if}} value="play">Oyna</option>
+                                                        <option {{#if (eq category.categoryIcon "camera" )}} selected
+                                                            {{/if}} value="camera">Kamera</option>
+                                                        <option {{#if (eq category.categoryIcon "filter" )}} selected
+                                                            {{/if}} value="filter">Filtre</option>
+                                                        <option {{#if (eq category.categoryIcon "shop" )}} selected
+                                                            {{/if}} value="shop">Mağaza</option>
+                                                        <option {{#if (eq category.categoryIcon "user" )}} selected
+                                                            {{/if}} value="user">Kullanıcı</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-check form-check-right mt-4">
+                                                    <input class="form-check-input" name="mainPage" type="checkbox"
+                                                        id="mainPage">
+                                                    <label class="form-check-label" for="mainPage">
+                                                        Layout'da gözüksün mü?
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="mb-3">
+                                            <label for="categoryDesc">Kategori Açıklaması</label>
+                                            <textarea class="form-control" id="productDesc" rows="5"
+                                                placeholder="Kategori Açıklaması"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="card-title mb-3">Kategori Resmi</h4>
+                                <div class="card-body d-flex flex-column justify-content-center align-items-center">
+
+                                    <div class="fallback">
+                                        <input name="image" type="file" />
+                                    </div>
+
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted bx bxs-cloud-upload"></i>
+                                        </div>
+
+                                        <h4>Drop files here or click to upload.</h4>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit"
+                                        class="btn btn-primary waves-effect waves-light">Oluştur</button>
+                                    <button type="button"
+                                        class="btn btn-secondary waves-effect waves-light">İptal</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+            <!-- end row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-2">
+                                <div class="col-sm-4">
+                                    <div class="search-box me-2 mb-2 d-inline-block">
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" placeholder="Search...">
+                                            <i class="bx bx-search-alt search-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="text-sm-end">
+                                        <a href="/admin/urunekle">
+                                            <button type="button"
+                                                class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                                    class="mdi mdi-plus me-1"></i> Yeni Kategori Ekle</button>
+                                        </a>
+                                    </div>
+                                </div><!-- end col-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table align-middle table-nowrap table-check">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 20px;" class="align-middle">
+                                                <div class="form-check font-size-16">
+                                                    <input class="form-check-input" type="checkbox" id="checkAll">
+                                                    <label class="form-check-label" for="checkAll"></label>
+                                                </div>
+                                            </th>
+                                            <th class="align-middle">Kategori Kodu</th>
+                                            <th class="align-middle">Kategori Adı</th>
+                                            <th class="align-middle">Tarih</th>
+                                            {{!-- <th class="align-middle">Payment Status</th>
+                                            <th class="align-middle">Payment Method</th> --}}
+                                            <th class="align-middle">Kategoriye Git</th>
+                                            <th class="align-middle">İşlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each category}}
+                                        <tr>
+                                            <td>
+                                                <div class="form-check font-size-16">
+                                                    <input class="form-check-input" type="checkbox" id="orderidcheck01">
+                                                    <label class="form-check-label" for="orderidcheck01"></label>
+                                                </div>
+                                            </td>
+                                            <td><a href="javascript: void(0);" class="text-body fw-bold">{{code}}</a>
+                                            </td>
+                                            <td>{{ limit categoryName}}</td>
+                                            <td>
+                                                {{ moment date}}
+                                            </td>
+
+                                            {{!-- <td>
+                                                <span
+                                                    class="badge badge-pill badge-soft-success font-size-12">Paid</span>
+                                            </td>
+                                            <td>
+                                                <i class="fab fa-cc-mastercard me-1"></i> Mastercard
+                                            </td> --}}
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <a href="/category/{{_id}}">
+                                                    <button type="button" class="btn btn-primary btn-sm btn-rounded"
+                                                        data-bs-toggle="modal" data-bs-target=".orderdetailsModal">
+                                                        Kategoriye Git
+                                                    </button>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex gap-3">
+                                                    <a href="javascript:void(0);" class="text-success"><i
+                                                            class="mdi mdi-pencil font-size-18"></i></a>
+                                                    <a href="javascript:void(0);" class="text-danger"><i
+                                                            class="mdi mdi-delete font-size-18"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul class="pagination pagination-rounded justify-content-end mb-2">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="javascript: void(0);" aria-label="Previous">
+                                        <i class="mdi mdi-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="javascript: void(0);" aria-label="Next">
+                                        <i class="mdi mdi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+
+
+</div>
