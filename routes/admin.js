@@ -7,6 +7,7 @@ const WebPage = require("../models/WebPage.js")
 const Category = require("../models/Category")
 const User = require("../models/User.js")
 const Order = require("../models/Order.js")
+const Layout = require("../models/Layout.js")
 const { appendFile } = require("fs")
 
 
@@ -41,6 +42,15 @@ router.get("/kategoriler",(req,res)=>{
 router.get("/anasayfa-ayarlar",(req,res)=>{
   WebPage.findOne({_id:"64e8d2cce47f9664533fc798"}).lean().then(webpage=>{
     res.render("panel/mainPageSettings",{webpage:webpage,layout:"admin"})
+  })
+})
+
+router.get("/layout-ayarlar",(req,res)=>{
+  WebPage.findOne({_id:"64e8d2cce47f9664533fc798"}).lean().then(webpage=>{
+    Category.find({}).lean().then(category=>{
+      res.render("panel/layoutSettings",{webpage:webpage,category:category,layout:"admin"})
+
+    })
   })
 })
 
@@ -84,9 +94,15 @@ router.put("/websiteInfo/64e8d2cce47f9664533fc798",(req,res) =>{
 
 router.put("/imageChange/64e8d2cce47f9664533fc798",(req,res) =>{
   WebPage.findOne({_id:"64e8d2cce47f9664533fc798"}).then(webpage=>{
-    Object.assign(webpage, req.body);
+    let webMainPageAddFirstImage = req.files.webMainPageAddFirstImage
+    webMainPageAddFirstImage.mv(path.resolve(__dirname, '../public/img/websiteInfo',webMainPageAddFirstImage.name))
+    let webMainPageAddSecondImage = req.files.webMainPageAddSecondImage
+    webMainPageAddSecondImage.mv(path.resolve(__dirname, '../public/img/websiteInfo',webMainPageAddSecondImage.name))
+    let webMainPageAddThirdImage = req.files.webMainPageAddThirdImage
+    webMainPageAddThirdImage.mv(path.resolve(__dirname, '../public/img/websiteInfo',webMainPageAddThirdImage.name))
+    Object.assign(webpage, {...req.body,webMainPageAddThirdImage:`/img/websiteInfo/${webMainPageAddThirdImage.name}`,webMainPageAddFirstImage:`/img/websiteInfo/${webMainPageAddFirstImage.name}`,webMainPageAddSecondImage:`/img/websiteInfo/${webMainPageAddSecondImage.name}`},);
     webpage.save().then(webpage=>{
-      res.redirect("/admin/anasayfa-ayarlar")
+      res.redirect("/admin/site-bilgiler")
     })
   })
 })
@@ -99,6 +115,14 @@ router.post("/newCategory",(req,res)=>{
   })
 })
 
+
+router.post("/newLayout",(req,res)=>{
+  Layout.create({...req.body}).then(layout=>{
+    res.redirect("/admin/layout-ayarlar")
+  })
+})
+
+
 router.post("/yeniUrun",(req,res) =>{
     let images = req.files.image; // "image" alanı birden fazla dosya seçilmesine izin verecek şekilde isimlendirilmelidir
     if (!Array.isArray(images)) {
@@ -107,7 +131,7 @@ router.post("/yeniUrun",(req,res) =>{
   
     const imagePromises = images.map((image) =>
       image.mv(
-        path.resolve(__dirname, "../public/img/productimages", image.name)
+        path.resolve(__dirname, "../public/img/productimages/", image.name)
       )
     );
   

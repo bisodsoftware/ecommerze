@@ -1,0 +1,54 @@
+<div class="page-content">
+    <div class="holder breadcrumbs-wrap mt-0">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="/">Ana Sayfa</a></li>
+                <li><span>Hesap Oluştur</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="holder">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-18 col-lg-12">
+                    <h2 class="text-center">Hesap Oluştur</h2>
+                    <div class="form-wrapper">
+                        <p>Hızlıca sipariş vermek, geçmiş siparişlerinize bakmak, adres kaydetmek ve kampanyalardan haberdar olmak için kayıt olun!</p>
+                        <form action="/kayitol/yenikayit" method="POST">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="userName" placeholder="İsim">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="userSurName" placeholder="Soyisim">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="userMail" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="userPassword" placeholder="Şifre">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password">
+                            </div>
+                            <div class="clearfix">
+                                <input id="checkbox1" name="checkbox1" type="checkbox" checked="checked">
+                                <label for="checkbox1">Kayıt olarak <a href="#"
+                                        class="custom-color" data-fancybox data-src="#modalTerms">Kullanıcı sözleşmesini</a> ve <a href="#" class="custom-color" data-fancybox
+                                        data-src="#modalCookies">KVKK sözleşmesini</a> kabul etmiş sayılırsınız.</label>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn">Hesap Oluştur</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

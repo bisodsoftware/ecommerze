@@ -1,0 +1,311 @@
+<header class="hdr-wrap">
+		<div class="hdr-content hdr-content-sticky">
+			<div class="container">
+				<div class="row">
+					<div class="col-auto show-mobile">
+						<div class="menu-toggle"> <a href="/" class="mobilemenu-toggle"><i class="icon-menu"></i></a>
+						</div>
+					</div>
+					<div class="col-auto hdr-logo">
+						<a href="/" class="logo"><img
+								srcset="{{webpageGeneral.webIcon}} 1x, {{webpageGeneral.webIcon}} 2x"
+								alt="{{webpageGeneral.webName}} Logo"></a>
+					</div>
+					<div class="hdr-nav hide-mobile nav-holder-s">
+					</div>
+					<div class="hdr-links-wrap col-auto ml-auto">
+						<div class="hdr-inline-link">
+							<div class="search_container_desktop">
+								<div class="dropdn dropdn_search dropdn_fullwidth">
+									<a href="/" class="dropdn-link  js-dropdn-link only-icon"><i
+											class="icon-search"></i><span class="dropdn-link-txt">Arama</span></a>
+									<div class="dropdn-content">
+										<div class="container">
+											<form method="get" action="#" class="search search-off-popular">
+												<input name="search" type="text" class="search-input input-empty"
+													placeholder="Aradığınız ürünü giriniz.?">
+												<button type="submit" class="search-button"><i
+														class="icon-search"></i></button>
+												<a href="/" class="search-close js-dropdn-close"><i
+														class="icon-close-thin"></i></a>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							 {{!-- <div class="dropdn dropdn_wishlist">
+                            <a href="account-wishlist.html" class="dropdn-link only-icon wishlist-link ">
+                                <i class="icon-heart"></i><span class="dropdn-link-txt">Wishlist</span><span
+                                    class="wishlist-qty">{{cartTotals.totalQuantity}}</span>
+                            </a>
+                        </div> --}}
+							<div class="dropdn dropdn_account dropdn_fullheight">
+								<a href="/" class="dropdn-link js-dropdn-link js-dropdn-link only-icon"
+									data-panel="#dropdnAccount"><i class="icon-user"></i><span
+										class="dropdn-link-txt">Profil</span></a>
+							</div>
+							<div class="dropdn dropdn_fullheight minicart">
+								<a href="/" class="dropdn-link js-dropdn-link minicart-link only-icon"
+									data-panel="#dropdnMinicart">
+									<i class="icon-basket"></i>
+									<span class="minicart-qty">{{cartTotals.totalQuantity}}</span>
+									<span class="minicart-total hide-mobile">₺{{cartTotals.totalPrice}}</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hdr hdr-style6">
+			{{!-- <div class="hdr-topline hdr-topline--dark js-hdr-top">
+				<div class="container">
+					<div class="row flex-nowrap">
+						<div class="col hdr-topline-center">
+							<div class="custom-text js-custom-text-carousel"
+								data-slick='{"speed": 1000, "autoplaySpeed": 3000}'>
+								<div class="custom-text-item"><i class="icon-fox"></i> Use promocode <span>FOXIC</span>
+									to get 15% discount!</div>
+								<div class="custom-text-item"><i class="icon-air-freight"></i> <span>Free</span> plane
+									shipping over <span>$250</span></div>
+								<div class="custom-text-item"><i class="icon-gift"></i> Today only! Post
+									<span>holiday</span> Flash Sale! 2 for $20</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> --}}
+			<div class="hdr-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-auto show-mobile">
+							<div class="menu-toggle"> <a href="/" class="mobilemenu-toggle"><i
+										class="icon-menu"></i></a> </div>
+						</div>
+						<div class="col-auto hdr-logo">
+							<a href="/" class="logo"><img
+									srcset="{{webpageGeneral.webIcon}} 1x, {{webpageGeneral.webIcon}} 2x"
+									alt="{{webpageGeneral.webName}} Logo"></a>
+						</div>
+						<div class="hdr-nav hide-mobile nav-holder justify-content-center">
+							<ul class="mmenu mmenu-js">
+								<li><a href="/">Ana Sayfa</a></li>
+                            {{#each navbarCategories}}
+                            <li><a href="/kategori/{{_id}}">{{categoryName}} </a></li>
+                            {{/each}}
+								
+
+							</ul>
+						</div>
+						<div class="hdr-links-wrap col-auto ml-auto">
+							<div class="hdr-inline-link">
+								<div class="search_container_desktop">
+									<div class="dropdn dropdn_search dropdn_fullwidth">
+										<a href="/" class="dropdn-link  js-dropdn-link only-icon"><i
+												class="icon-search"></i><span class="dropdn-link-txt">Arama</span></a>
+										<div class="dropdn-content">
+											<div class="container">
+												<form method="get" action="#" class="search search-off-popular">
+													<input name="search" type="text" class="search-input input-empty"
+														placeholder="Aradığınız ürünü giriniz.?">
+													<button type="submit" class="search-button"><i
+															class="icon-search"></i></button>
+													<a href="/" class="search-close js-dropdn-close"><i
+															class="icon-close-thin"></i></a>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								 {{!-- <div class="dropdn dropdn_compare">
+									<a href="/" class="dropdn-link only-icon compare-link ">
+										<i class="icon-compare"></i><span class="dropdn-link-txt">Wishlist</span><span
+											class="compare-qty">3</span>
+									</a>
+								</div> --}}
+								<div class="dropdn dropdn_account dropdn_fullheight">
+									<a href="/" class="dropdn-link js-dropdn-link js-dropdn-link only-icon"
+										data-panel="#dropdnAccount"><i class="icon-user"></i><span
+											class="dropdn-link-txt">Profil</span></a>
+								</div>
+								<div class="dropdn dropdn_fullheight minicart">
+									<a href="/" class="dropdn-link js-dropdn-link minicart-link only-icon"
+										data-panel="#dropdnMinicart">
+										<i class="icon-basket"></i>
+										<span class="minicart-qty">{{cartTotals.totalQuantity}}</span>
+										<span class="minicart-total hide-mobile">₺{{cartTotals.totalPrice}}</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="header-side-panel">
+		<div class="mobilemenu js-push-mbmenu">
+			<div class="mobilemenu-content">
+				<div class="mobilemenu-close mobilemenu-toggle">Kapat</div>
+				<div class="mobilemenu-scroll">
+					<div class="mobilemenu-search"></div>
+					<div class="nav-wrapper show-menu">
+						<div class="nav-toggle">
+							<span class="nav-back"><i class="icon-angle-left"></i></span>
+							<span class="nav-title"></span>
+							<a href="/" class="nav-viewall">Hepsini Gör</a>
+						</div>
+						<ul class="nav nav-level-1">
+                        {{#each navbarCategories}}
+                        <li><a href="/kategori/{{_id}}" target="_blank">{{categoryName}} </a></li>
+                        {{/each}}
+                    </ul>
+					</div>
+					<div class="mobilemenu-bottom">
+						<div class="mobilemenu-currency">
+							<div class="dropdn_currency">
+								<div class="dropdn dropdn_caret">
+									<a href="/" class="dropdn-link js-dropdn-link">Türk Lirası<i
+											class="icon-angle-down"></i></a>
+									<div class="dropdn-content">
+										<ul>
+											<li class="active"><a href="/"><span>Türk Lirası</span></a></li>
+											<li><a href="/"><span>Euro</span></a></li>
+											<li><a href="/"><span>UK pounds</span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mobilemenu-language">
+							<div class="dropdn_language">
+								<div class="dropdn dropdn_language dropdn_language--noimg dropdn_caret">
+									<a href="/" class="dropdn-link js-dropdn-link"><span
+											class="js-dropdn-select-current">Türkçe</span><i
+											class="icon-angle-down"></i></a>
+									<div class="dropdn-content">
+										<ul>
+											<li class="active"><a href="/"><img src="/foxic/images/flags/en.webp"
+														alt="">Türkçe</a></li>
+											<li><a href="/"><img src="/foxic/images/flags/sp.webp" alt="">Spanish</a></li>
+											<li><a href="/"><img src="/foxic/images/flags/de.webp" alt="">German</a></li>
+											<li><a href="/"><img src="/foxic/images/flags/fr.webp" alt="">French</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dropdn-content account-drop" id="dropdnAccount">
+			<div class="dropdn-content-block">
+				<div class="dropdn-close"><span class="js-dropdn-close">Kapat</span></div>
+				<ul>
+					<li><a href="/giris"><span>Giriş Yap</span><i class="icon-login"></i></a></li>
+					<li><a href="/kayitol"><span>Kayıt Ol</span><i class="icon-user2"></i></a></li>
+					<li><a href="/sepet"><span>Sepeti Görüntüle</span><i class="icon-card"></i></a></li>
+				</ul>
+				<div class="dropdn-form-wrapper">
+					<h5>Hızlı Giriş</h5>
+					<form action="#">
+						<div class="form-group">
+							<input type="text" class="form-control form-control--sm is-invalid"
+								placeholder="Mail adresi">
+							<div class="invalid-feedback">Lütfen doldurunuz.</div>
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control form-control--sm"
+								placeholder="Şifre">
+						</div>
+						<button type="submit" class="btn">Giriş Yap</button>
+					</form>
+				</div>
+			</div>
+			<div class="drop-overlay js-dropdn-close"></div>
+		</div>
+		<div class="dropdn-content minicart-drop" id="dropdnMinicart">
+			<div class="dropdn-content-block">
+				<div class="dropdn-close"><span class="js-dropdn-close">Kapat</span></div>
+				<div class="minicart-drop-content js-dropdn-content-scroll">
+					{{#each shoppingcart.productName}}
+                <div class="minicart-prd row">
+                    <div class="minicart-prd-image image-hover-scale-circle col">
+                        <a href="/urun/{{_id}}"><img class="lazyload fade-up"
+                                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-src="{{image.[0]}}" alt=""></a>
+                    </div>
+                    <div class="minicart-prd-info col">
+                        <div class="minicart-prd-tag">{{categoryName}}</div>
+                        <h2 class="minicart-prd-name"><a href="/">{{productName}}</a></h2>
+                        <div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Adet:</span><span
+                                class="minicart-prd-qty-value">1</span></div>
+                        <div class="minicart-prd-price prd-price">
+                            <div class="price-old">₺{{oldPrice}}</div>
+                            <div class="price-new">₺{{newPrice}}</div>
+                        </div>
+                    </div>
+                    <div class="minicart-prd-action">
+                        <a href="/" class="js-product-remove" data-line-number="2"><i class="icon-recycle"></i></a>
+                    </div>
+                </div>
+                {{/each}}
+					<div class="minicart-empty js-minicart-empty d-none">
+						<div class="minicart-empty-text">Sepetiniz Boş</div>
+						<div class="minicart-empty-icon">
+							<i class="icon-shopping-bag"></i>
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 306 262"
+								style="enable-background:new 0 0 306 262;" xml:space="preserve">
+								<path class="st0"
+									d="M78.1,59.5c0,0-37.3,22-26.7,85s59.7,237,142.7,283s193,56,313-84s21-206-69-240s-249.4-67-309-60C94.6,47.6,78.1,59.5,78.1,59.5z" />
+								</svg>
+						</div>
+					</div>
+					 {{!-- <a href="/" class="minicart-drop-countdown mt-3">
+                    <div class="countdown-box-full">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto"><i class="icon-gift icon--giftAnimate"></i></div>
+                            <div class="col">
+                                <div class="countdown-txt">WHEN BUYING TWO
+                                    THINGS A THIRD AS A GIFT
+                                </div>
+                                <div class="countdown js-countdown" data-countdown="2021/07/01"></div>
+                            </div>
+                        </div>
+                    </div>
+                </a> --}}
+                {{!-- <div class="minicart-drop-info d-none d-md-block">
+                    <div class="shop-feature-single row no-gutters align-items-center">
+                        <div class="shop-feature-icon col-auto"><i class="icon-truck"></i></div>
+                        <div class="shop-feature-text col"><b>SHIPPING!</b> Continue shopping to add more products
+                            and receive free shipping</div>
+                    </div>
+                </div> --}}
+				</div>
+				<div class="minicart-drop-fixed js-hide-empty">
+					<div class="loader-horizontal-sm js-loader-horizontal-sm" data-loader-horizontal=""><span></span>
+					</div>
+					<div class="minicart-drop-total js-minicart-drop-total row no-gutters align-items-center">
+						<div class="minicart-drop-total-txt col-auto heading-font">Toplam</div>
+						<div class="minicart-drop-total-price col" data-header-cart-total="">₺{{cartTotals.totalPrice}}</div>
+					</div>
+					<div class="minicart-drop-actions">
+						<a href="/sepet" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Cart
+								Page</span></a>
+						<a href="/odeme" class="btn btn--md"><i class="icon-checkout"></i><span>Check
+								out</span></a>
+					</div>
+					<ul class="payment-link mb-2">
+						<li><i class="icon-amazon-logo"></i></li>
+						<li><i class="icon-visa-pay-logo"></i></li>
+						<li><i class="icon-skrill-logo"></i></li>
+						<li><i class="icon-klarna-logo"></i></li>
+						<li><i class="icon-paypal-logo"></i></li>
+						<li><i class="icon-apple-pay-logo"></i></li>
+					</ul>
+				</div>
+			</div>
+			<div class="drop-overlay js-dropdn-close"></div>
+		</div>
+	</div>

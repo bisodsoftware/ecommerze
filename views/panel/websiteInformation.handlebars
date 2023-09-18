@@ -46,7 +46,7 @@
                                             <input class="form-control" type="number" name="phoneNumber"
                                                 value="{{webpage.phoneNumber}}" id="example-text-input">
                                         </div>
-                                         <div class="mb-3">
+                                        <div class="mb-3">
                                             <label for="text" class="form-label">Site Açıklaması</label>
                                             <input class="form-control" type="text" name="webDesc"
                                                 value="{{webpage.webDesc}}" id="example-text-input">
@@ -95,7 +95,7 @@
                                             <input class="form-control" name="mailAddress" type="text"
                                                 value="{{webpage.mailAddress}}" id="example-text-input">
                                         </div>
-                                         <div class="mb-3">
+                                        <div class="mb-3">
                                             <label for="text" class="form-label">Adres</label>
                                             <input class="form-control" name="address" type="text"
                                                 value="{{webpage.address}}" id="example-text-input">
@@ -133,6 +133,107 @@
                 </div>
             </div>
             <!-- end row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Tema Seçiniz</h4>
+                            <form method="POST" action="/admin/websiteInfo/64e8d2cce47f9664533fc798?_method=PUT"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row">
+                                    <div class="col-sm-12 row d-flex justify-content-between">
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="fashion" type="radio" name="theme"
+                                                id="fashion">
+                                            <label class="form-check-label" for="fashion">
+                                                Fashion
+                                                <img src="/foxic/images/screen/screen01.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="sport" type="radio" name="theme"
+                                                id="sport">
+                                            <label class="form-check-label" for="sport">
+                                                Sport
+                                                <img src="/foxic/images/screen/screen-sport.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="books" type="radio" name="theme"
+                                                id="books">
+                                            <label class="form-check-label" for="books">
+                                                Books
+                                                <img src="/foxic/images/screen/screen-books.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="cosmetics" type="radio" name="theme"
+                                                id="cosmetics">
+                                            <label class="form-check-label" for="cosmetics">
+                                                Cosmetics
+                                                <img src="/foxic/images/screen/screen-cosmetics.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="electronics" type="radio"
+                                                name="theme" id="electronics">
+                                            <label class="form-check-label" for="electronics">
+                                                Electronics
+                                                <img src="/foxic/images/screen/screen-electronics.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="foodmarket" type="radio" name="theme"
+                                                id="foodmarket">
+                                            <label class="form-check-label" for="foodmarket">
+                                                FoodMarket
+                                                <img src="/foxic/images/screen/screen-food.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="games" type="radio" name="theme"
+                                                id="games">
+                                            <label class="form-check-label" for="games">
+                                                Games
+                                                <img src="/foxic/images/screen/screen-games.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="lingeries" type="radio" name="theme"
+                                                id="lingeries">
+                                            <label class="form-check-label" for="lingeries">
+                                                Lingeries
+                                                <img src="/foxic/images/screen/screen-lingeries.webp" alt="">
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-radio-success mb-3 col-sm-3">
+                                            <input class="form-check-input" value="pets" type="radio" name="theme"
+                                                id="pets">
+                                            <label class="form-check-label" for="pets">
+                                                Pets
+                                                <img src="/foxic/images/screen/screen-pets.webp" alt="">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit"
+                                        class="btn btn-primary waves-effect waves-light">Kaydet</button>
+                                    <button type="button"
+                                        class="btn btn-secondary waves-effect waves-light">İptal</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div> <!-- container-fluid -->
     </div>

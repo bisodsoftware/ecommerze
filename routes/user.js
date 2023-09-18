@@ -32,28 +32,113 @@ router.get("/giris", (req, res) => {
   if (req.session.userId) {
     res.redirect("/profil");
   } else {
-    res.render("site/login", {
+    const data = {
       navbarCategories: req.navbarCategories,
       webpageGeneral: req.webpageGeneral,
-    });
+    }
+    if (req.webpageGeneral.theme == "fashion") {
+        res.render("foxicThemes/common/login", { layout: "fashion", ...data });
+      } else if (req.webpageGeneral.theme == "sport") {
+        res.render("foxicThemes/common/login", { layout: "sport", ...data });
+      } else if (req.webpageGeneral.theme == "books") {
+        res.render("foxicThemes/common/login", { layout: "books", ...data });
+      } else if (req.webpageGeneral.theme == "cosmetics") {
+        res.render("foxicThemes/common/login", { layout: "cosmetics", ...data });
+      } else if (req.webpageGeneral.theme == "electronics") {
+        res.render("foxicThemes/common/login", { layout: "electronics", ...data });
+      } else if (req.webpageGeneral.theme == "foodmarket") {
+        res.render("foxicThemes/common/login", { layout: "foodmarket", ...data });
+      } else if (req.webpageGeneral.theme == "games") {
+        res.render("foxicThemes/common/login", { layout: "games", ...data });
+      } else if (req.webpageGeneral.theme == "lingeries") {
+        res.render("foxicThemes/common/login", { layout: "lingeries", ...data });
+      } else if (req.webpageGeneral.theme == "pets") {
+        res.render("foxicThemes/common/login", { layout: "pets", ...data });
+      } else if (req.webpageGeneral.theme == "site") {
+        res.render("site/login", data);
+      } else {
+        res
+          .status(404)
+          .send(
+            "Tema Hatası. Lütfen site ayarlarınızdan temanızı güncelleyin. Hata devam ediyorsa yetkili ile iletişime geçin. bisod.com.tr."
+          );
+      }
   }
 });
+
+
 router.get("/kayitol", (req, res) => {
   if (req.session.userId) {
     res.redirect("/profil");
   } else {
-    res.render("site/register", {
+    const data = {
       navbarCategories: req.navbarCategories,
       webpageGeneral: req.webpageGeneral,
-    });
+    }
+    if (req.webpageGeneral.theme == "fashion") {
+        res.render("foxicThemes/common/register", { layout: "fashion", ...data });
+      } else if (req.webpageGeneral.theme == "sport") {
+        res.render("foxicThemes/common/register", { layout: "sport", ...data });
+      } else if (req.webpageGeneral.theme == "books") {
+        res.render("foxicThemes/common/register", { layout: "books", ...data });
+      } else if (req.webpageGeneral.theme == "cosmetics") {
+        res.render("foxicThemes/common/register", { layout: "cosmetics", ...data });
+      } else if (req.webpageGeneral.theme == "electronics") {
+        res.render("foxicThemes/common/register", { layout: "electronics", ...data });
+      } else if (req.webpageGeneral.theme == "foodmarket") {
+        res.render("foxicThemes/common/register", { layout: "foodmarket", ...data });
+      } else if (req.webpageGeneral.theme == "games") {
+        res.render("foxicThemes/common/register", { layout: "games", ...data });
+      } else if (req.webpageGeneral.theme == "lingeries") {
+        res.render("foxicThemes/common/register", { layout: "lingeries", ...data });
+      } else if (req.webpageGeneral.theme == "pets") {
+        res.render("foxicThemes/common/register", { layout: "pets", ...data });
+      } else if (req.webpageGeneral.theme == "site") {
+        res.render("site/category", data);
+      } else {
+        res
+          .status(404)
+          .send(
+            "Tema Hatası. Lütfen site ayarlarınızdan temanızı güncelleyin. Hata devam ediyorsa yetkili ile iletişime geçin. bisod.com.tr."
+          );
+      }
   }
 });
 
 router.get("/profil",(req,res)=>{
   if(req.session.userId){
     User.findOne({_id:req.session.userId}).lean().then((user=>{
-      res.render("site/profile",{user:user,navbarCategories: req.navbarCategories,
-        webpageGeneral: req.webpageGeneral,})
+      const data = {
+        user:user,navbarCategories: req.navbarCategories,
+          webpageGeneral: req.webpageGeneral
+      }
+      if (req.webpageGeneral.theme == "fashion") {
+        res.render("foxicThemes/common/account-details", { layout: "fashion", ...data });
+      } else if (req.webpageGeneral.theme == "sport") {
+        res.render("foxicThemes/common/account-details", { layout: "sport", ...data });
+      } else if (req.webpageGeneral.theme == "books") {
+        res.render("foxicThemes/common/account-details", { layout: "books", ...data });
+      } else if (req.webpageGeneral.theme == "cosmetics") {
+        res.render("foxicThemes/common/account-details", { layout: "cosmetics", ...data });
+      } else if (req.webpageGeneral.theme == "electronics") {
+        res.render("foxicThemes/common/account-details", { layout: "electronics", ...data });
+      } else if (req.webpageGeneral.theme == "foodmarket") {
+        res.render("foxicThemes/common/account-details", { layout: "foodmarket", ...data });
+      } else if (req.webpageGeneral.theme == "games") {
+        res.render("foxicThemes/common/account-details", { layout: "games", ...data });
+      } else if (req.webpageGeneral.theme == "lingeries") {
+        res.render("foxicThemes/common/account-details", { layout: "lingeries", ...data });
+      } else if (req.webpageGeneral.theme == "pets") {
+        res.render("foxicThemes/common/account-details", { layout: "pets", ...data });
+      } else if (req.webpageGeneral.theme == "site") {
+        res.render("site/category", data);
+      } else {
+        res
+          .status(404)
+          .send(
+            "Tema Hatası. Lütfen site ayarlarınızdan temanızı güncelleyin. Hata devam ediyorsa yetkili ile iletişime geçin. bisod.com.tr."
+          );
+      }
     }))
   }else{
     res.redirect("/giris")

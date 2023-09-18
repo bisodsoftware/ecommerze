@@ -1,0 +1,91 @@
+<div class="page-content">
+    <div class="holder breadcrumbs-wrap mt-0">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="/">Ana Sayfa</a></li>
+                <li><span>Hesabım</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="holder">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 aside aside--left">
+                    <div class="list-group">
+                        <a href="/profil" class="list-group-item active">Hesap Detayları</a>
+                        <a href="/profil/adresler" class="list-group-item">Adreslerim</a>
+                        <a href="/profil/istek-listesi" class="list-group-item">İstek Listem</a>
+                        <a href="/profil/siparislerim" class="list-group-item">Siparişlerim</a>
+                        <a href="/profil/incelemelerim" class="list-group-item disabled">Ürün İncelemelerim</a>
+                    </div>
+                </div>
+                <div class="col-md-14 aside">
+                    <h1 class="mb-3">Hesap Detayları</h1>
+                    <div class="row vert-margin">
+                        <div class="col-sm-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Kişisel Bilgiler</h3>
+                                    <p><b>İsim:</b> {{user.userName}}<br>
+                                        <b>Soyisim:</b> {{user.userSurName}}<br>
+                                        <b>E-mail:</b> {{user.userMail}}<br>
+                                        <b>Telefon No:</b> {{user.userPhone}}
+                                    </p>
+                                    <div class="mt-2 clearfix">
+                                        <a href="#" class="link-icn js-show-form" data-form="#updateDetails"><i
+                                                class="icon-pencil"></i>Düzenle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3 d-none" id="updateDetails">
+                        <form action="/kullanici/hesapbilgi/{{user._id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <div class="card-body">
+                                <h3>Hesap Detaylarını Güncelle</h3>
+                                <div class="row mt-2">
+                                    <div class="col-sm-9">
+                                        <label class="text-uppercase">İsim:</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control--sm"
+                                               name="userName" value="{{user.userName}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <label class="text-uppercase">Soyisim:</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control--sm"
+                                               name="userSurName" value="{{user.userSurName}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-9">
+                                        <label class="text-uppercase">E-mail:</label>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control--sm"
+                                               name="userMail" value="{{user.userMail}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <label class="text-uppercase">Telefon Numarası:</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control--sm"
+                                               name="userPhone" value="{{user.userPhone}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <button type="reset" class="btn btn--alt js-close-form"
+                                        data-form="#updateDetails">İptal</button>
+                                    <button type="submit" class="btn ml-1">Güncelle</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

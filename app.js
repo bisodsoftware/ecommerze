@@ -12,7 +12,6 @@ const methodOverride = require("method-override")
 const moment = require('moment');
 const fileUpload = require("express-fileupload")
 const helpers = require('handlebars-helpers');
-const Category = require("./models/Category")
 
 mongoose.set('strictQuery', false);
 
@@ -40,14 +39,42 @@ app.use(methodOverride('_method'))
 const hbs = exphbs.create({
     
     helpers: {
+        ifCond: function(v1, operator, v2, options) {
+            switch (operator) {
+              case '==':
+                return v1 == v2 ? options.fn(this) : options.inverse(this);
+              case '===':
+                return v1 === v2 ? options.fn(this) : options.inverse(this);
+              case '!=':
+                return v1 != v2 ? options.fn(this) : options.inverse(this);
+              case '!==':
+                return v1 !== v2 ? options.fn(this) : options.inverse(this);
+              case '<':
+                return v1 < v2 ? options.fn(this) : options.inverse(this);
+              case '<=':
+                return v1 <= v2 ? options.fn(this) : options.inverse(this);
+              case '>':
+                return v1 > v2 ? options.fn(this) : options.inverse(this);
+              case '>=':
+                return v1 >= v2 ? options.fn(this) : options.inverse(this);
+              default:
+                return options.inverse(this);
+            }
+        },
         moment: function(date) {
             return moment(date).format("YYYY-MM-DD");
         },
         plus: function(a,b){
             return a+b;
         },
-        limit: function(a){
-            return  a.slice(0,50);
+        subtraction: function(a,b){
+            return a-b;
+        },
+        multiply: function(a,b){
+            return  a*b;
+        },
+        divide: function(a,b){
+            return  (a/b).toFixed(2).replace(/\.?0*$/, '');
         },
         moment: function(date) {
             return moment(date).format("YYYY-MM-DD");
@@ -63,6 +90,9 @@ const hbs = exphbs.create({
         eq: function (a, b) {
             return a === b;
         },
+        eqIds: function (id1, id2) {
+          return id1.equals(id2);
+      },
     },
     defaultLayout:"main"
 });

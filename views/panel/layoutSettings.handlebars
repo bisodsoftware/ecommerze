@@ -1,0 +1,84 @@
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Ana Sayfa Ayarları</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Site Adı</a></li>
+                                <li class="breadcrumb-item active">Site Ayarları</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="card-title">Resim Ayarları</h4>
+                            <form method="POST" action="/admin/newLayout">
+                        
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Layout Profil Adı</label>
+                                            <input class="form-control" name="layoutName" type="text"
+                                                value="{{layout.layoutName}}"
+                                                id="example-text-input">
+                                        </div>
+                                        <div class="mb-3">
+                                                <label class="form-label">Kategori Adı</label>
+                                                <div>
+                                                    <select name="categoryName" class="form-select">
+                                                        {{#each category}}
+                                                        <option value="{{_id}}"> {{categoryName}} </option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="mb-3">
+                                            <label for="text" class="form-label">Layout Başlığı</label>
+                                            <input class="form-control" name="layoutTitle" type="text"
+                                                value="{{layout.layoutTitle}}"
+                                                id="example-text-input">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
+                                        Changes</button>
+                                    <button type="button"
+                                        class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+
+
+</div>
