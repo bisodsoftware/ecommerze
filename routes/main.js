@@ -392,17 +392,24 @@ router.delete("/urun/sil/:id", (req, res) => {
 });
 
 router.post("/yeniurun/urun/:id", async (req, res) => {
-  const user = await User.findOne({ _id: req.session.userId });
-  ShoppingCart.findOne({ userMail: user._id }).then((shoppingcart) => {
+  try {
+    const user = await User.findOne({ _id: req.session.userId });
+    const shoppingcart = await ShoppingCart.findOne({ userMail: user._id });
+
     if (shoppingcart) {
       shoppingcart.productName.push(req.params.id);
-      shoppingcart.save();
+      await shoppingcart.save();
     } else {
       console.log("ShoppingCart bulunamadı veya null.");
     }
+
     res.redirect("/");
-  });
+  } catch (error) {
+    console.error("Hata oluştu:", error);
+    res.status(500).send("Bir hata oluştu.");
+  }
 });
+
 
 router.post("/odeme/onay", async (req, res) => {
   const cartItems = req.shoppingcart ? req.shoppingcart.productName || [] : [];

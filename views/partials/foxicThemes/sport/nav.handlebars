@@ -608,15 +608,14 @@
                 <li><a href="/sepet"><span>Sepeti Görüntüle</span><i class="icon-card"></i></a></li>
             </ul>
             <div class="dropdn-form-wrapper">
-                <h5>Hızlı Giriş</h5>
-                <form action="#">
+             <h5>Hızlı Giriş</h5>
+					<form action="/girisyap" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control--sm is-invalid"
-                            placeholder="Mail adresi">
+                        <input type="text" class="form-control form-control--sm is-invalid" name="userMail" placeholder="Mail adresi">
                         <div class="invalid-feedback">Lütfen doldurunuz.</div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control--sm" placeholder="Şifre">
+                        <input type="password" name="userPassword" class="form-control form-control--sm" placeholder="Şifre">
                     </div>
                     <button type="submit" class="btn">Giriş Yap</button>
                 </form>
@@ -637,7 +636,7 @@
                     </div>
                     <div class="minicart-prd-info col">
                         <div class="minicart-prd-tag">{{categoryName}}</div>
-                        <h2 class="minicart-prd-name"><a href="/">{{productName}}</a></h2>
+                        <h2 class="minicart-prd-name"><a href="/urun/{{_id}}">{{productName}}</a></h2>
                         <div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Adet:</span><span
                                 class="minicart-prd-qty-value">1</span></div>
                         <div class="minicart-prd-price prd-price">

@@ -173,6 +173,8 @@ router.post("/girisyap", async (req, res) => {
   const { userMail, userPassword } = req.body;
   try {
     const user = await User.findOne({ userMail: userMail });
+    console.log(userMail)
+    console.log(userPassword)
 
     if (user) {
       if (user.userPassword == userPassword) {

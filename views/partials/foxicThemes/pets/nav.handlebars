@@ -34,8 +34,7 @@
                     </div>
                 </div>
                 <div class="col-auto hdr-logo">
-                    <a href="/" class="logo"><img
-                            srcset="{{webpageGeneral.webIcon}}"
+                    <a href="/" class="logo"><img srcset="{{webpageGeneral.webIcon}}"
                             alt="{{webpageGeneral.webName}} Logo"></a>
                 </div>
                 <div class="hdr-nav hide-mobile nav-holder-s">
@@ -93,8 +92,7 @@
                         </div>
                     </div>
                     <div class="col-auto hdr-logo">
-                        <a href="/" class="logo"><img
-                                srcset="{{webpageGeneral.webIcon}}"
+                        <a href="/" class="logo"><img srcset="{{webpageGeneral.webIcon}}"
                                 alt="{{webpageGeneral.webName}} Logo"></a>
                     </div>
                     <div class="hdr-nav hide-mobile nav-holder justify-content-center px-4">
@@ -166,10 +164,10 @@
                     </div>
                     <ul class="nav nav-level-1">
                         <li><a href="/">Ana Sayfa</a></li>
-                            {{#each navbarCategories}}
-                            <li><a href="/kategori/{{_id}}">{{categoryName}} </a></li>
-                            {{/each}}
-                            
+                        {{#each navbarCategories}}
+                        <li><a href="/kategori/{{_id}}">{{categoryName}} </a></li>
+                        {{/each}}
+
                     </ul>
                 </div>
                 <div class="mobilemenu-bottom">
@@ -220,14 +218,13 @@
             </ul>
             <div class="dropdn-form-wrapper">
                 <h5>Hızlı Giriş</h5>
-                <form action="#">
+                <form action="/girisyap" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control form-control--sm is-invalid"
-                            placeholder="Mail adresi">
+                        <input name="userMail" type="text" class="form-control form-control--sm is-invalid" placeholder="Mail adresi">
                         <div class="invalid-feedback">Lütfen doldurunuz.</div>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control form-control--sm" placeholder="Şifre">
+                        <input name="userPassword" type="password" class="form-control form-control--sm" placeholder="Şifre">
                     </div>
                     <button type="submit" class="btn">Giriş Yap</button>
                 </form>
@@ -248,7 +245,7 @@
                     </div>
                     <div class="minicart-prd-info col">
                         <div class="minicart-prd-tag">{{categoryName}}</div>
-                        <h2 class="minicart-prd-name"><a href="/">{{productName}}</a></h2>
+                        <h2 class="minicart-prd-name"><a href="/urun/{{_id}}">{{productName}}</a></h2>
                         <div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Adet:</span><span
                                 class="minicart-prd-qty-value">1</span></div>
                         <div class="minicart-prd-price prd-price">
@@ -298,10 +295,12 @@
                 </div>
                 <div class="minicart-drop-total js-minicart-drop-total row no-gutters align-items-center">
                     <div class="minicart-drop-total-txt col-auto heading-font">Toplam</div>
-                    <div class="minicart-drop-total-price col" data-header-cart-total="">₺{{cartTotals.totalPrice}}</div>
+                    <div class="minicart-drop-total-price col" data-header-cart-total="">₺{{cartTotals.totalPrice}}
+                    </div>
                 </div>
                 <div class="minicart-drop-actions">
-                    <a href="/sepet" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Sepeti Görüntüle</span></a>
+                    <a href="/sepet" class="btn btn--md btn--grey"><i class="icon-basket"></i><span>Sepeti
+                            Görüntüle</span></a>
                     <a href="/odeme" class="btn btn--md"><i class="icon-checkout"></i><span>Ödemeye Geç</span></a>
                 </div>
                 <ul class="payment-link mb-2">

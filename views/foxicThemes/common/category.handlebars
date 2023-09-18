@@ -346,7 +346,7 @@
 												{{productDesc}} // açıklama 
 											</div>
 											<div class="prd-action">
-												<form action="#">
+												<form action="/yeniurun/urun/{{product._id}}" method="post">
 													<button class="btn js-prd-addtocart"
 														data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete Ekle</button>
 												</form>
@@ -372,7 +372,7 @@
 											</div>
 											<div class="prd-action">
 												<div class="prd-action-left">
-													<form action="#">
+													<form action="/yeniurun/urun/{{product._id}}" method="post">
 														<button class="btn js-prd-addtocart"
 															data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete <i class="fa fa-external-link-square" aria-hidden="true"></i></button>
 													</form>

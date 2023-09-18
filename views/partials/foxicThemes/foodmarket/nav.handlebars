@@ -209,7 +209,7 @@
 				</ul>
 				<div class="dropdn-form-wrapper">
 					<h5>Hızlı Giriş</h5>
-					<form action="#">
+					<form action="/girisyap" method="POST">
 						<div class="form-group">
 							<input type="text" class="form-control form-control--sm is-invalid"
 								placeholder="Mail adresi">
@@ -238,7 +238,7 @@
                     </div>
                     <div class="minicart-prd-info col">
                         <div class="minicart-prd-tag">{{categoryName}}</div>
-                        <h2 class="minicart-prd-name"><a href="/">{{productName}}</a></h2>
+                        <h2 class="minicart-prd-name"><a href="/urun/{{_id}}">{{productName}}</a></h2>
                         <div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Adet:</span><span
                                 class="minicart-prd-qty-value">1</span></div>
                         <div class="minicart-prd-price prd-price">

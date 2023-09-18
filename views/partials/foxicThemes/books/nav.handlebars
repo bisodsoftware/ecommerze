@@ -39,8 +39,7 @@
 							</a>
 						</div> --}}
 						<div class="dropdn dropdn_account dropdn_fullheight">
-							<a href="/" class="dropdn-link js-dropdn-link js-dropdn-link only-icon"
-								data-panel="#dropdnAccount"><i class="icon-user"></i><span
+							<a href="/profil" class="dropdn-link js-dropdn-link" {{#if user}}{{else}}  data-panel="#dropdnAccount" {{/if}}><i class="icon-user"></i><span
 									class="dropdn-link-txt">Profil</span></a>
 						</div>
 						<div class="dropdn dropdn_fullheight minicart">
@@ -193,11 +192,11 @@
 				<h5>Hızlı Giriş</h5>
 				<form action="#">
 					<div class="form-group">
-						<input type="text" class="form-control form-control--sm is-invalid" placeholder="Mail adresi">
+						<input name="userMail" type="text" class="form-control form-control--sm is-invalid" placeholder="Mail adresi">
 						<div class="invalid-feedback">Lütfen doldurunuz.</div>
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control form-control--sm" placeholder="Şifre">
+						<input type="password" name="userPassword" class="form-control form-control--sm" placeholder="Şifre">
 					</div>
 					<button type="submit" class="btn">Giriş Yap</button>
 				</form>
@@ -218,7 +217,7 @@
 					</div>
 					<div class="minicart-prd-info col">
 						<div class="minicart-prd-tag">{{categoryName}}</div>
-						<h2 class="minicart-prd-name"><a href="/">{{productName}}</a></h2>
+						<h2 class="minicart-prd-name"><a href="/urun/{{_id}}">{{productName}}</a></h2>
 						<div class="minicart-prd-qty"><span class="minicart-prd-qty-label">Adet:</span><span
 								class="minicart-prd-qty-value">1</span></div>
 						<div class="minicart-prd-price prd-price">
