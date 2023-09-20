@@ -7,6 +7,7 @@ const WebPage = require("../models/WebPage.js");
 const ShoppingCart = require("../models/ShoppingCart.js")
 
 const path = require("path");
+const Order = require("../models/Order.js");
 
 function loadNavbarCategories(req, res, next) {
   Category.find({})
@@ -144,6 +145,53 @@ router.get("/profil",(req,res)=>{
     res.redirect("/giris")
   }
 });
+
+
+router.get("/profil/siparislerim",(req,res)=>{
+  if(req.session.userId){
+    User.findOne({_id:req.session.userId}).lean().then((user=>{
+      Order.find({userMail:user._id}).populate({ path: "items.productName", model: "Product" }).lean().then(order=>{
+        const data = {
+          user:user,navbarCategories: req.navbarCategories,
+            webpageGeneral: req.webpageGeneral,order:order,
+        }
+     
+      if (req.webpageGeneral.theme == "fashion") {
+        res.render("foxicThemes/common/orderHistory", { layout: "fashion", ...data });
+      } else if (req.webpageGeneral.theme == "sport") {
+        res.render("foxicThemes/common/orderHistory", { layout: "sport", ...data });
+      } else if (req.webpageGeneral.theme == "books") {
+        res.render("foxicThemes/common/orderHistory", { layout: "books", ...data });
+      } else if (req.webpageGeneral.theme == "cosmetics") {
+        res.render("foxicThemes/common/orderHistory", { layout: "cosmetics", ...data });
+      } else if (req.webpageGeneral.theme == "electronics") {
+        res.render("foxicThemes/common/orderHistory", { layout: "electronics", ...data });
+      } else if (req.webpageGeneral.theme == "foodmarket") {
+        res.render("foxicThemes/common/orderHistory", { layout: "foodmarket", ...data });
+      } else if (req.webpageGeneral.theme == "games") {
+        res.render("foxicThemes/common/orderHistory", { layout: "games", ...data });
+      } else if (req.webpageGeneral.theme == "lingeries") {
+        res.render("foxicThemes/common/orderHistory", { layout: "lingeries", ...data });
+      } else if (req.webpageGeneral.theme == "pets") {
+        res.render("foxicThemes/common/orderHistory", { layout: "pets", ...data });
+      } else if (req.webpageGeneral.theme == "site") {
+        res.render("site/category", data);
+      } else {
+        res
+          .status(404)
+          .send(
+            "Tema Hatası. Lütfen site ayarlarınızdan temanızı güncelleyin. Hata devam ediyorsa yetkili ile iletişime geçin. bisod.com.tr."
+          );
+      }
+    })
+    }))
+  }else{
+    res.redirect("/giris")
+  }
+});
+
+
+
 
 router.post("/cikis",(req,res)=>{
   req.session.userId = null

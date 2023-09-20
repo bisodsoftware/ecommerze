@@ -85,9 +85,9 @@
                                 </div>
                                 <div class="prd-action">
                                     <div class="prd-action-left">
-                                        <form action="#">
+                                        <form action="/yeniurun/urun/{{_id}}" method="POST">
                                             <button class="btn js-prd-addtocart"
-                                                data-product='{"name": "Eye Lash Curler", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
+                                                data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
                                                 Ekle</button>
                                         </form>
                                     </div>
@@ -153,12 +153,10 @@
                                         data-placement="right" title="Color Name"><img
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                                             data-src="{{image.[1]}}" class="lazyload fade-up" alt="Color Name"></a></li>
-                                <li data-image="/foxic/images/skins/fashion/products/product-25-3.webp"><a href="/"
-                                        class="js-color-toggle" data-toggle="tooltip" data-placement="right"
-                                        title="Color Name"><img
+                                <li data-image="{{image.[2]}}"><a href="/" class="js-color-toggle" data-toggle="tooltip"
+                                        data-placement="right" title="Color Name"><img
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                            data-src="/foxic/images/skins/fashion/products/product-25-3.webp"
-                                            class="lazyload fade-up" alt="Color Name"></a></li>
+                                            data-src="{{image.[2]}}" class="lazyload fade-up" alt="Color Name"></a></li>
                             </ul>
                         </div>
                         <div class="prd-info">
@@ -178,7 +176,7 @@
                                     {{productDesc}}
                                 </div>
                                 <div class="prd-action">
-                                    <form action="#">
+                                    <form action="/yeniurun/urun/{{_id}}" method="POST">
                                         <button class="btn js-prd-addtocart"
                                             data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
                                             Ekle</button>
@@ -205,10 +203,10 @@
                                 </div>
                                 <div class="prd-action">
                                     <div class="prd-action-left">
-                                        <form action="#">
+                                        <form action="/yeniurun/urun/{{_id}}" method="POST">
                                             <button class="btn js-prd-addtocart"
-                                                data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Add
-                                                To Cart</button>
+                                                data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
+                                                Ekle</button>
                                         </form>
                                     </div>
                                 </div>
@@ -297,7 +295,6 @@
                                     <div class="prd-price">
                                         {{#if oldPrice}}
                                         <div class="price-old">₺ {{oldPrice}}</div>
-                                        <div class="price-new">₺ {{newPrice}}</div>
                                         {{/if}} <div class="price-new">₺ {{newPrice}}</div>
                                     </div>
                                     <div class="prd-action">
@@ -614,7 +611,7 @@
                             </div>
                             <div class="prd-action">
                                 <div class="prd-action-left">
-                                    <form action="#">
+                                    <form action="/yeniurun/urun/{{_id}}" method="POST">
                                         <button class="btn js-prd-addtocart"
                                             data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
                                             Ekle</button>
@@ -710,7 +707,7 @@
                             </div>
                             <div class="prd-action">
                                 <div class="prd-action-left">
-                                    <form action="#">
+                                    <form action="/yeniurun/urun/{{_id}}" method="POST">
                                         <button class="btn js-prd-addtocart"
                                             data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
                                             Ekle</button>
@@ -840,15 +837,15 @@
                                 <div class="prd-price">
                                     {{#if oldPrice}}
                                     <div class="price-old">₺ {{oldPrice}}</div>
-                                    <div class="price-new">₺ {{newPrice}}</div>
                                     {{/if}}
+                                    <div class="price-new">₺ {{newPrice}}</div>
                                 </div>
                                 <div class="prd-action">
                                     <div class="prd-action-left">
-                                        <form action="#">
+                                        <form action="/yeniurun/urun/{{_id}}" method="POST">
                                             <button class="btn js-prd-addtocart"
-                                                data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Add
-                                                To Cart</button>
+                                                data-product='{"name": "{{productName}}", "path":"{{image.[0]}}", "url":"/urun/{{_id}}", "aspect_ratio":0.778}'>Sepete
+                                                Ekle</button>
                                         </form>
                                     </div>
                                     <div class="prd-action-right">

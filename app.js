@@ -64,6 +64,9 @@ const hbs = exphbs.create({
         moment: function(date) {
             return moment(date).format("YYYY-MM-DD");
         },
+        limit: function(a){
+            return a.slice(0,50)
+        },
         plus: function(a,b){
             return a+b;
         },

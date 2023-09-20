@@ -42994,3 +42994,8 @@ body
     animation-name: driveInLeft;
     animation-duration: 2s;
 }
+.hiddenButton{
+    cursor: pointer; 
+    border: 0;
+    background-color: transparent;
+}

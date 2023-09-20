@@ -1,0 +1,108 @@
+<div class="page-content">
+    <div class="holder breadcrumbs-wrap mt-0">
+        <div class="container">
+            <ul class="breadcrumbs">
+                <li><a href="/">Ana Sayfa</a></li>
+                <li><span>Hesabım</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="holder">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 aside aside--left">
+                    <div class="list-group">
+                        <a href="/profil" class="list-group-item active">Hesap Detayları</a>
+                        <a href="/profil/adresler" class="list-group-item">Adreslerim</a>
+                        <a href="/profil/istek-listesi" class="list-group-item">İstek Listem</a>
+                        <a href="/profil/siparislerim" class="list-group-item">Siparişlerim</a>
+                        <a href="/profil/incelemelerim" class="list-group-item disabled">Ürün İncelemelerim</a>
+                    </div>
+                </div>
+                <div class="col-md-14 aside">
+                    <h1 class="mb-3">Sipariş Geçmişi
+                    </h1>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-order-history">
+                            <thead>
+                                <tr>
+                                    <th scope="col"># </th>
+                                    <th scope="col">Sipariş Numarası</th>
+                                    <th scope="col">Sipariş Tarihi</th>
+                                    <th scope="col">Durum</th>
+                                    <th scope="col">Toplam Fiyat</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each order}}
+                                <tr>
+                                    <td>{{@index}}</td>
+                                    <td class="text-center"><b>{{orderNumber}}</b></td>
+                                    <td>{{moment date}}</td>
+                                    <td>{{orderStatus}}</td>
+                                    <td><span class="color">₺{{orderPrice}} </span></td>
+                                    <td class="text-center"><a data-src="#contactModal{{orderNumber}}"
+                                            class="modal-info-link btn btn--grey btn--sm">Detay</a></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-right mt-2">
+                        <a href="#" class="btn btn--alt">Clear History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#each order}}
+<div id="contactModal{{orderNumber}}" style="display: none;" class="modal-info-content modal-info-content-lg">
+    <div class="modal-info-heading">
+        <div class="mb-1"><i class="icon-box"></i></div>
+        <div class="row">
+             <div class="col-md-6">
+                <h2>Kargo No:<p> {{#if orderTrackNumber}} {{orderTrackNumber}} {{else}} {{orderStatus}} {{/if}} </p></h2>
+            </div>
+            <div class="col-md-6">
+                <h2>Sipariş No: {{orderNumber}} </h2>
+            </div>
+            <div class="col-md-6">
+                <form action="/siparistekrar/{{_id}}" method="POST">
+                <h2><button type="submit" class="btn btn--grey btn--sm">Siparişi Tekrarla</button> </h2>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-order-history">
+            <thead>
+                <tr>
+                    <th scope="col"># </th>
+                    <th scope="col">Ürün Resmi</th>
+                    <th scope="col">Ürün Adı</th>
+                    <th scope="col">Ürün Adeti</th>
+                    <th scope="col">Ürün Fiyatı</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td><a href="/urun/{{productName._id}}" class="prd-img"><img class="lazyload fade-up"
+                                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                data-src="{{productName.image.[0]}}" alt=""></a></td>
+                    <td class="text-center"><b>{{productName.productName}}</b></td>
+                    <td>{{quantity}}</td>
+                    <td><span class="color">₺{{productName.newPrice}} </span></td>
+                    <td class="text-center"><a data-src="#contactModal{{orderNumber}}"
+                            class="modal-info-link btn btn--grey btn--sm">İade</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/each}}

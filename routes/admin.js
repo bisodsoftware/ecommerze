@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.get("/siparisler",(req,res)=>{
-  Order.find({}).populate({ path: "productName", model: Product }).populate({ path: "userMail", model: User }).lean().then(order=>{
+  Order.find({}).populate({ path: "items.productName", model: Product }).populate({ path: "userMail", model: User }).lean().then(order=>{
     res.render("panel/orders",{order:order,layout:"admin"})
 
   })
@@ -60,6 +60,15 @@ router.get("/site-bilgiler",(req,res)=>{
   })
 })
 
+
+router.put("/orderChange/:id",(req,res)=>{
+  Order.findOne({_id:req.params.id}).then(order=>{
+    Object.assign(order,req.body)
+    order.save().then(order=>{
+      res.redirect("/admin/siparisler/")
+    })
+  })
+})
 
 
 router.put("/websiteInfo/64e8d2cce47f9664533fc798",(req,res) =>{

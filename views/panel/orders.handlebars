@@ -57,7 +57,7 @@
                                             <th class="align-middle">Müşteri Adı</th>
                                             <th class="align-middle">Tarih</th>
                                             <th class="align-middle">Toplam</th>
-                                            <th class="align-middle">Ödeme Durumu</th>
+                                            <th class="align-middle">Sipariş Durumu</th>
                                             <th class="align-middle">Ödeme Tercihi</th>
                                             <th class="align-middle">Detayı Gör</th>
                                             <th class="align-middle">Aksiyon</th>
@@ -74,7 +74,7 @@
                                             </td>
                                             <td><a href="javascript: void(0);" class="text-body fw-bold">{{@index}}</a>
                                             </td>
-                                            <td>{{orderName}} {{orderName}}</td>
+                                            <td>{{orderName}} {{orderSurName}}</td>
                                             <td>
                                                 {{moment date}}
                                             </td>
@@ -82,8 +82,7 @@
                                                 ₺{{orderPrice}}
                                             </td>
                                             <td>
-                                                <span class="badge badge-pill badge-soft-danger font-size-12">Ödeme
-                                                    Bekliyor</span>
+                                                <span class="badge badge-pill {{#if (eq orderStatus "Siparişiniz Alındı")}} badge-soft-danger {{else if (eq orderStatus "Siparişiniz Hazırlanıyor")}} badge-soft-warning {{else}} badge-soft-success {{/if}}  font-size-12">{{orderStatus}}</span>
                                             </td>
                                             <td>
                                                 <i class="fab fa-cc-mastercard me-1"></i> {{orderPayment}}
@@ -137,25 +136,55 @@
     <!-- Modal -->
     {{#each order}}
     <div class="modal fade orderdetailsModal{{_id}}" tabindex="-1" role="dialog"
-        aria-labelledby=orderdetailsModal{{_id}}Label" aria-hidden="true">
+        aria-labelledby="orderdetailsModal{{_id}}Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id=orderdetailsModal{{_id}}Label">Order Details</h5>
+                    <h5 class="modal-title" id="orderdetailsModal{{_id}}Label">Sipariş Detayları</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="mb-2">Sipariş no: <span class="text-primary">{{@index}} </span></p>
-                    <p class="mb-4">Alıcı Adı: <span class="text-primary">{{orderName}} {{orderSurName}} </span></p>
-                    <p class="mb-4">Adres 1: <span class="text-primary">{{orderStreet}} </span></p>
-                    <p class="mb-4">Adres 2: <span class="text-primary">{{orderApartment}} </span></p>
-                    <p class="mb-4">Şehir: <span class="text-primary">{{orderCity}} </span></p>
-                    <p class="mb-4">Mahalle: <span class="text-primary">{{orderHood}} </span></p>
-                    <p class="mb-4">Posta Kodu: <span class="text-primary">{{orderPostCode}} </span></p>
-                    <p class="mb-4">Alıcı Telefon No: <span class="text-primary">{{orderPhone}} </span></p>
-                    <p class="mb-4">Alıcı E-Postası: <span class="text-primary">{{orderMail}} </span></p>
-                    <p class="mb-4">Alıcı Notu: <span class="text-primary">{{orderNote}} </span></p>
-                    
+                    <p class="mb-3">Sipariş no: <span class="text-primary">{{@index}} </span></p>
+                    <p class="mb-3">Müşteri Adı: <span class="text-primary">{{orderName}} {{orderSurName}} </span></p>
+                    <p class="mb-3">Adres 1: <span class="text-primary">{{orderAddress}} </span></p>
+                    <p class="mb-3">Adres 2: <span class="text-primary">{{orderApartment}} </span></p>
+                    <p class="mb-3">Şehir: <span class="text-primary">{{orderCity}} </span></p>
+                    <p class="mb-3">İlçe: <span class="text-primary">{{orderHood}} </span></p>
+                    <p class="mb-3">Posta Kodu: <span class="text-primary">{{orderPostCode}} </span></p>
+                    <p class="mb-3">Müşteri Telefon No: <span class="text-primary">{{orderPhone}} </span></p>
+                    <p class="mb-3">Müşteri E-Postası: <span class="text-primary">{{orderMail}} </span></p>
+                    <p class="mb-3">Müşteri Notu: <span class="text-primary">{{#if orderNote}} {{orderNote}} {{else}}
+                            <span class="text-danger">Müşteri not yazmadı.</span> {{/if}} </span></p>
+                    <div class="modal-footer">
+                        <form class="row" action="/admin/orderChange/{{_id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <div class="mb-3 col-md-6">
+                                <p for="orderTrackNumber">Kargo Takip Numarası</p>
+                                <input id="orderTrackNumber" name="orderTrackNumber" value="{{orderTrackNumber}}" type="text" class="form-control "
+                                    placeholder="Kargo Numarası">
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label">Sipariş Durumu</label>
+                                <div class="mt-2">
+                                    <select name="orderStatus" class="form-select">
+                                        <option {{#if (eq orderStatus "Siparişiniz Alındı" )}} selected {{/if}} value="Siparişiniz Alındı">
+                                            Siparişiniz Alındı</option>
+                                        <option {{#if (eq orderStatus "Siparişiniz Hazırlanıyor" )}} selected {{/if}}
+                                            value="Siparişiniz Hazırlanıyor">Siparişiniz Hazırlanıyor</option>
+                                        <option {{#if (eq orderStatus "Siparişiniz Kargoda" )}} selected {{/if}} value="Siparişiniz Kargoda">
+                                            Siparişiniz Kargoda</option>
+                                        <option {{#if (eq orderStatus "Siparişiniz Teslim Edildi" )}} selected {{/if}} value="Siparişiniz Teslim Edildi">
+                                            Siparişiniz Teslim Edildi</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
+                            </div>
+
+                        </form>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table align-middle table-nowrap">
                             <thead>
@@ -166,20 +195,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each productName}}
+                                {{#each items}}
                                 <tr>
                                     <th scope="row">
                                         <div>
-                                            <img src="{{image.[0]}}" alt="" class="avatar-sm">
+                                            <img src="{{productName.image.[0]}}" alt="" class="avatar-sm">
                                         </div>
                                     </th>
                                     <td>
                                         <div>
-                                            <h5 class="text-truncate font-size-14">{{productName}}</h5>
-                                            <p class="text-muted mb-0">₺{{oldPrice}} x 1</p>
+                                            <h5 class="text-truncate font-size-14">{{productName.productName}}</h5>
+                                            <p class="text-muted mb-0">₺{{productName.newPrice}} x {{quantity}}</p>
                                         </div>
                                     </td>
-                                    <td>₺{{oldPrice}}</td>
+                                    <td>₺{{productName.newPrice}}</td>
                                 </tr>
                                 {{/each}}
 
